@@ -1,0 +1,27 @@
+.header {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: var(--mediumBlack);
+	padding: 20px;
+}
+
+.header__nav {
+	display: flex;
+	place-content: center;
+	gap: 50px;
+}
+
+.header__link {
+	font-weight: bold;
+}
+
+.header__link--underline,
+.header__link:hover {
+	text-decoration: underline var(--red);
+	text-underline-offset: 5px;
+}
+
+.header__link:hover {
+	color: var(--red);
+}
