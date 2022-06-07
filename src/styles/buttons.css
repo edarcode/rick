@@ -1,0 +1,31 @@
+.btn {
+	background-color: var(--red);
+	border-radius: 25px;
+	padding: 5px 18px;
+	color: inherit;
+	font-weight: bold;
+	border: 2px solid transparent;
+	box-shadow: 0 0 7px 8px var(--shadow);
+	transition: box-shadow 0.3s ease, outline 0.3s ease,
+		background-color 0.3s ease;
+}
+
+.btn:hover {
+	box-shadow: 0 0 7px 12px var(--shadow);
+}
+
+.btn:focus {
+	outline: 3px solid var(--shadow);
+}
+
+.btn--ghost {
+	box-shadow: 0 0 transparent;
+	background-color: transparent;
+	border: 2px solid var(--white);
+}
+
+.btn--ghost:hover {
+	box-shadow: none;
+	background-color: var(--white);
+	color: var(--red);
+}
