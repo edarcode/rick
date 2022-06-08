@@ -1,22 +1,22 @@
 import { bgFooter } from "../../../constants/bgImages";
-import { home } from "../../../constants/paths";
+import { about, contact, home } from "../../../constants/paths";
 import LinkList from "../../common/LinkList/LinkList";
 import css from "./style.module.css";
 
 const listOne = [
-	{ to: { home }, content: "Home" },
-	{ to: { home }, content: "Contact" },
-	{ to: { home }, content: "About" }
+	{ to: `${home}`, content: "Home" },
+	{ to: `${contact}`, content: "Contact" },
+	{ to: `${about}`, content: "About" }
 ];
 const listTwo = [
-	{ to: { home }, content: "Dead" },
-	{ to: { home }, content: "Alive" },
-	{ to: { home }, content: "Female" },
-	{ to: { home }, content: "Male" }
+	{ to: "*", content: "Dead" },
+	{ to: "*", content: "Alive" },
+	{ to: "*", content: "Female" },
+	{ to: "*", content: "Male" }
 ];
 const listThree = [
-	{ to: { home }, content: "Rick" },
-	{ to: { home }, content: "Morty" }
+	{ to: "*", content: "Rick" },
+	{ to: "*", content: "Morty" }
 ];
 
 export default function Footer() {

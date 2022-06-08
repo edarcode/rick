@@ -5,6 +5,12 @@
 .list__item {
 	list-style: none;
 }
+
+.list__link {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
 .list__link:hover {
 	color: var(--red);
 }

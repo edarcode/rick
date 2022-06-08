@@ -1,0 +1,7 @@
+.intro {
+	display: flex;
+}
+
+.intro div {
+	min-width: 100%;
+}
