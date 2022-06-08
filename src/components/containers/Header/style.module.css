@@ -1,7 +1,4 @@
 .header {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
 	background-color: var(--mediumBlack);
 	padding: 20px;
 }
@@ -24,4 +21,7 @@
 
 .header__link:hover {
 	color: var(--red);
+}
+.header__link:focus {
+	outline: 2px solid var(--red);
 }

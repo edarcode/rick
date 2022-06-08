@@ -1,0 +1,13 @@
+.list {
+	padding-left: 0;
+}
+
+.list__item {
+	list-style: none;
+}
+.list__link:hover {
+	color: var(--red);
+}
+.list__link:focus {
+	outline: 2px solid var(--red);
+}

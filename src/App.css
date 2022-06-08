@@ -1,0 +1,9 @@
+.App {
+	display: grid;
+	grid-template-rows: 1fr auto auto;
+	min-height: 100vh;
+}
+
+.App header {
+	grid-row: 3/-1;
+}
