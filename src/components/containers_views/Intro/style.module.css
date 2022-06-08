@@ -1,5 +1,6 @@
 .intro {
 	display: flex;
+	overflow-y: hidden;
 }
 
 .intro div {
