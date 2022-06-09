@@ -1,0 +1,14 @@
+.slider {
+	width: 100vw;
+	overflow: hidden;
+	position: relative;
+}
+
+.slider section {
+	transition: transform 0.7s ease;
+	display: flex;
+}
+
+.slider section div {
+	min-width: 100%;
+}
