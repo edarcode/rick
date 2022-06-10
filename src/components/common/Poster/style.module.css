@@ -15,6 +15,12 @@
 	padding: 5px;
 }
 
+@media screen and (min-width: 1280px) {
+	.poster__content {
+		max-width: 50%;
+	}
+}
+
 .poster__img {
 	position: absolute;
 	top: 0;

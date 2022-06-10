@@ -24,6 +24,7 @@ export default function SliderPoster({ posters }) {
 	return (
 		<div className={css.slider}>
 			<section
+				className={css.slider__container}
 				style={{
 					transform: `translateX(${index * 100 * -1}%)`
 				}}

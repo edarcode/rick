@@ -4,11 +4,21 @@
 	position: relative;
 }
 
-.slider section {
+.slider__container {
 	transition: transform 0.7s ease;
 	display: flex;
 }
+@media screen and (min-width: 1280px) {
+	.slider__container {
+		min-height: 500px;
+	}
+}
+@media screen and (min-width: 1920px) {
+	.slider__container {
+		min-height: 700px;
+	}
+}
 
-.slider section div {
+.slider__container div {
 	min-width: 100%;
 }
