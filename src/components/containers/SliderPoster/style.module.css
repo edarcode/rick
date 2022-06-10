@@ -1,5 +1,5 @@
 .slider {
-	width: 100vw;
+	width: 100%;
 	overflow: hidden;
 	position: relative;
 }
@@ -8,17 +8,11 @@
 	transition: transform 0.7s ease;
 	display: flex;
 }
-@media screen and (min-width: 1280px) {
-	.slider__container {
-		min-height: 500px;
-	}
+.slider__container div {
+	min-width: 100%;
 }
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1280px) {
 	.slider__container {
 		min-height: 700px;
 	}
-}
-
-.slider__container div {
-	min-width: 100%;
 }
