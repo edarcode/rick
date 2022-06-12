@@ -55,9 +55,6 @@ function checkboundary(slider, sliderCounter) {
 	const sliderRect = slider.current.getBoundingClientRect();
 	const sliderCounterRect = slider.current.getBoundingClientRect();
 
-	console.log(sliderCounterRect.right);
-	console.log(sliderRect.right);
-
 	if (parseInt(sliderCounter.current.style.left) > 0) {
 		sliderCounter.current.style.left = "0";
 	} else if (sliderCounterRect.right > sliderRect.right) {
