@@ -1,6 +1,7 @@
 .header {
 	background-color: var(--mediumBlack);
 	padding: 20px;
+	caret-color: transparent;
 }
 
 .header__nav {

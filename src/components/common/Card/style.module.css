@@ -1,0 +1,13 @@
+.card {
+	width: 150px;
+	display: grid;
+	place-items: center;
+	padding: 20px 10px 10px;
+	caret-color: transparent;
+}
+.card__img {
+	border-radius: 50%;
+}
+.card__title {
+	text-align: center;
+}

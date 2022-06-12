@@ -7,7 +7,7 @@
 }
 
 .poster__title {
-	font-size: 4rem;
+	font-size: 5rem;
 	text-align: center;
 }
 .poster__content {
@@ -17,7 +17,7 @@
 
 @media screen and (min-width: 1280px) {
 	.poster__content {
-		max-width: 50%;
+		max-width: 30%;
 	}
 }
 
