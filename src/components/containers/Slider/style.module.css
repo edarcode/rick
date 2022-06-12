@@ -1,4 +1,5 @@
 .slider {
+	position: relative;
 	width: 90vw;
 	height: 200px;
 	overflow: hidden;
@@ -8,17 +9,14 @@
 }
 
 .slider__container {
-	position: relative;
+	position: absolute;
 	top: 0;
 	left: 0;
+	width: 100%;
+	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(20, 300px);
-	grid-gap: 5px;
+	gap: 5px;
 	pointer-events: none;
-}
-
-@media screen and (min-width: 768px) {
-	.slider__container div {
-		min-width: 22.5%;
-	}
+	transition: 0s ease-in;
 }
