@@ -1,34 +1,39 @@
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useMediaScreen } from "../../../hooks/useMediaScreen";
 
 import Card from "../../common/Card/Card";
 import css from "./style.module.css";
 
 export default function Slider({ data }) {
 	const sliderContainer = useRef(null);
+	const { widthScreen } = useMediaScreen();
+	const [left, setLeft] = useState();
 
-	sliderContainer.current && console.log(sliderContainer.current.scrollWidth);
-	sliderContainer.current && console.log(sliderContainer.current.offsetWidth);
+	useEffect(() => {
+		setLeft(
+			sliderContainer.current.scrollWidth - sliderContainer.current.offsetWidth
+		);
+	}, [widthScreen]);
 
 	return (
-		<motion.div className={css.slider}>
+		<div className={css.slider}>
 			<motion.div
 				className={css.slider__container}
 				drag="x"
-				dragConstraints={{
-					right: -10,
-					left:
-						(sliderContainer.current &&
-							-sliderContainer.current.scrollWidth +
-								sliderContainer.current.offsetWidth) ||
-						null
-				}}
+				dragConstraints={
+					(sliderContainer.current && {
+						right: -10,
+						left: -left
+					}) ||
+					{}
+				}
 				ref={sliderContainer}
 			>
 				{data.map(({ id, name, image }) => (
 					<Card key={id} title={name} img={image} />
 				))}
 			</motion.div>
-		</motion.div>
+		</div>
 	);
 }
