@@ -1,65 +1,40 @@
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { useEffect } from "react";
+
+import { useMediaScreen } from "../../../hooks/useMediaScreen";
 import Card from "../../common/Card/Card";
 import css from "./style.module.css";
 
 export default function Slider({ data }) {
-	const slider = useRef(null);
-	const sliderContainer = useRef(null);
-	let pressed = false;
-	let startX;
-	let x;
+	const { widthScreen } = useMediaScreen();
 
-	const handleOnMouseDown = e => {
-		pressed = true;
-		startX = e.nativeEvent.offsetX - sliderContainer.current.offsetLeft;
-		slider.current.style.cursor = "grabbing";
+	const handleDragConstraints = () => {
+		if (widthScreen >= 1920) {
+			return { right: -10, left: -3650 };
+		} else if (widthScreen >= 1280) {
+			return { right: -10, left: -4220 };
+		} else if (widthScreen >= 768) {
+			return { right: -10, left: -4700 };
+		} else {
+			return { right: -10, left: -4050 };
+		}
 	};
-	const handleOnMouseEnter = e => {
-		slider.current.style.cursor = "grab";
-	};
-	const handleOnMouseUp = e => {
-		slider.current.style.cursor = "grab";
-	};
-	const handleOnMouseUpWindow = e => {
-		pressed = false;
-	};
-	window.addEventListener("mouseup", handleOnMouseUpWindow);
 
-	const handleOnMouseMove = e => {
-		if (!pressed) return;
-		e.preventDefault();
-		x = e.nativeEvent.offsetX;
-		sliderContainer.current.style.left = `${x - startX}px`;
-		checkboundary(slider, sliderContainer);
-	};
+	useEffect(() => {
+		console.log(widthScreen);
+	}, [widthScreen]);
 
 	return (
-		<div
-			ref={slider}
-			className={css.slider}
-			onMouseDown={handleOnMouseDown}
-			onMouseEnter={handleOnMouseEnter}
-			onMouseUp={handleOnMouseUp}
-			onMouseMove={handleOnMouseMove}
-		>
-			<section ref={sliderContainer} className={css.slider__container}>
+		<motion.div className={css.slider}>
+			<motion.div
+				className={css.slider__container}
+				drag="x"
+				dragConstraints={handleDragConstraints()}
+			>
 				{data.map(({ id, name, image }) => (
 					<Card key={id} title={name} img={image} />
 				))}
-			</section>
-		</div>
+			</motion.div>
+		</motion.div>
 	);
-}
-
-function checkboundary(slider, sliderCounter) {
-	const sliderRect = slider.current.getBoundingClientRect();
-	const sliderCounterRect = slider.current.getBoundingClientRect();
-
-	if (parseInt(sliderCounter.current.style.left) > 0) {
-		sliderCounter.current.style.left = "0";
-	} else if (sliderCounterRect.right > sliderRect.right) {
-		sliderCounter.current.style.left = `-${
-			sliderCounterRect.width - sliderRect.width
-		}px`;
-	}
 }
