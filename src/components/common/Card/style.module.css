@@ -4,10 +4,17 @@
 	padding: 20px 10px 10px;
 	caret-color: transparent;
 }
+.card:hover {
+	color: var(--red);
+}
+.card:not(.card:hover) {
+	color: inherit;
+}
 .card__img {
 	border-radius: 50%;
 	pointer-events: none;
 }
 .card__title {
 	text-align: center;
+	color: currentColor;
 }

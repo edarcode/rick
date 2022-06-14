@@ -12,8 +12,9 @@
 	grid-template-columns: repeat(20, 200px);
 	gap: 20px;
 }
-/* @media screen and (min-width: 768px) {
-	.slider__container {
-		grid-template-columns: repeat(20, 250px);
+
+@media screen and (min-width: 1280px) {
+	.slider {
+		width: 80vw;
 	}
-} */
+}

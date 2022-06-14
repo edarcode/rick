@@ -9,9 +9,15 @@ import Favorite from "./views/Favorite/Favorite";
 import Home from "./views/Home/Home";
 import NotFound from "./views/NotFound/NotFound";
 
-function App() {
-	const { characters } = useCharacters();
+const numRandom = Math.floor(Math.random() * 41) + 1;
+const otherNumRandom = Math.floor(Math.random() * 41) + 1;
 
+function App() {
+	const { characters } = useCharacters({});
+	const { characters: randomCharacters } = useCharacters({ page: numRandom });
+	const { characters: rarestCharacters } = useCharacters({
+		page: otherNumRandom
+	});
 	return (
 		<div className="App">
 			<Header />
@@ -20,7 +26,16 @@ function App() {
 					path={home}
 					element={
 						<CharactersContext.Provider
-							value={(characters && { characters }) || {}}
+							value={
+								(characters &&
+									randomCharacters &&
+									rarestCharacters && {
+										characters,
+										randomCharacters,
+										rarestCharacters
+									}) ||
+								{}
+							}
 						>
 							<Home />
 						</CharactersContext.Provider>

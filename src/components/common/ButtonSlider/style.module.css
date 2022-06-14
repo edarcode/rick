@@ -1,12 +1,10 @@
 .btn-slider {
 	position: absolute;
-	background-color: var(--red);
-	top: 50%;
-	right: 0;
-	transform: translateY(-50%);
+	background-color: transparent;
+	top: 5px;
+	left: 5px;
 	display: grid;
 	gap: 5px;
-	box-shadow: 0 0 7px 4px var(--shadow);
 }
 
 .btn-slider svg {
@@ -16,6 +14,8 @@
 	height: 100%;
 	cursor: pointer;
 	transition: box-shadow 0.3s ease;
+	color: var(--red);
+	border-radius: 50%;
 }
 .btn-slider svg:hover {
 	box-shadow: 0 0 7px 6px var(--shadow);

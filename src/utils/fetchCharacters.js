@@ -1,5 +1,7 @@
-export const fetchCharacters = async () => {
-	const characters = await fetch("https://rickandmortyapi.com/api/character", {
+import { apiRickAndMorty } from "../constants/urls";
+
+export const fetchCharacters = async ({ page = 1 }) => {
+	const characters = await fetch(`${apiRickAndMorty}?page=${page}`, {
 		method: "GET"
 	});
 	return characters.json();

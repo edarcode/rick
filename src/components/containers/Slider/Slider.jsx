@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Card from "../../common/Card/Card";
 import css from "./style.module.css";
 
-export default function Slider({ data }) {
+export default function Slider({ data, title }) {
 	const sliderContainer = useRef(null);
 	const [left, setLeft] = useState();
 
@@ -21,6 +21,7 @@ export default function Slider({ data }) {
 
 	return (
 		<div className={css.slider}>
+			<h3>{title}</h3>
 			<motion.div
 				className={css.slider__container}
 				drag="x"
