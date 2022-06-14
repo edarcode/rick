@@ -3,9 +3,11 @@
 	place-items: center;
 	padding: 20px 10px 10px;
 	caret-color: transparent;
+	transition: transform 0.4s ease;
 }
 .card:hover {
 	color: var(--red);
+	transform: scale(1.1);
 }
 .card:not(.card:hover) {
 	color: inherit;

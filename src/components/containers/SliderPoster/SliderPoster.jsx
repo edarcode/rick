@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonSlider from "../../common/ButtonSlider/ButtonSlider";
 import Poster from "../../common/Poster/Poster";
 import css from "./style.module.css";
 
 export default function SliderPoster({ posters }) {
 	const [index, setIndex] = useState(0);
+
+	useEffect(() => {
+		const idInterval = setInterval(() => {
+			setIndex(index => {
+				const sizePosters = posters.length - 1;
+				if (index === sizePosters) return 0;
+				return index + 1;
+			});
+		}, 8000);
+		return () => clearInterval(idInterval);
+	}, [posters]);
 
 	const handleOnClickLeft = () => {
 		if (index === 0) {

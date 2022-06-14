@@ -1,0 +1,22 @@
+.search {
+	border-radius: 3px;
+}
+.search__input {
+	border-radius: 25px;
+	padding: 10px 12px;
+	background-color: #3b3b3b;
+	border: none;
+	color: inherit;
+	width: 310px;
+	height: 40px;
+}
+.search__input::placeholder {
+	font-size: 1.8rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.search__input:focus {
+	outline: transparent;
+}

@@ -1,8 +1,6 @@
 .slider {
 	width: 90vw;
 	overflow: hidden;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .slider__container {
