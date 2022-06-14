@@ -1,14 +1,13 @@
-.search {
-	border-radius: 3px;
-}
 .search__input {
-	border-radius: 25px;
+	border-radius: 23px;
 	padding: 10px 12px;
-	background-color: #3b3b3b;
+	background-color: var(--fullBlack);
 	border: none;
 	color: inherit;
 	width: 310px;
-	height: 40px;
+	height: 30px;
+	transition: transform 0.8s ease;
+	font-size: 1.6rem;
 }
 .search__input::placeholder {
 	font-size: 1.8rem;
@@ -19,4 +18,5 @@
 }
 .search__input:focus {
 	outline: transparent;
+	transform: scale(1.1);
 }
