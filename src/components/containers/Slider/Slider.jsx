@@ -1,33 +1,30 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { useMediaScreen } from "../../../hooks/useMediaScreen";
 
 import Card from "../../common/Card/Card";
 import css from "./style.module.css";
 
 export default function Slider({ data }) {
 	const sliderContainer = useRef(null);
-	const { widthScreen } = useMediaScreen();
 	const [left, setLeft] = useState();
 
 	useEffect(() => {
-		setLeft(
-			sliderContainer.current.scrollWidth - sliderContainer.current.offsetWidth
-		);
-	}, [widthScreen]);
+		const scroll =
+			sliderContainer.current.scrollWidth - sliderContainer.current.offsetWidth;
+		setLeft(-scroll);
+		const resize = () => {
+			setLeft(-scroll);
+		};
+		window.addEventListener("resize", resize);
+		return () => window.removeEventListener("resize", resize);
+	}, []);
 
 	return (
 		<div className={css.slider}>
 			<motion.div
 				className={css.slider__container}
 				drag="x"
-				dragConstraints={
-					(sliderContainer.current && {
-						right: -10,
-						left: -left
-					}) ||
-					{}
-				}
+				dragConstraints={{ right: -10, left }}
 				ref={sliderContainer}
 			>
 				{data.map(({ id, name, image }) => (
