@@ -8,6 +8,10 @@
 	height: 30px;
 	transition: transform 0.8s ease;
 	font-size: 1.6rem;
+	background-image: url("/search.png");
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	background-position: calc(100% - 8px);
 }
 .search__input::placeholder {
 	font-size: 1.8rem;

@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Logo from "./components/common/Logo/Logo";
 import Footer from "./components/containers/Footer/Footer";
 import Header from "./components/containers/Header/Header";
 import { favorite, home } from "./constants/paths";
@@ -20,6 +21,7 @@ function App() {
 	});
 	return (
 		<div className="App">
+			<Logo />
 			<Header />
 			<Routes>
 				<Route
