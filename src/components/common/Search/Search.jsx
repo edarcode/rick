@@ -7,10 +7,10 @@ export default function Search() {
 	const { setName } = useContext(CharacterFiltersContext);
 
 	const [nameLocal, setNameLocal] = useState("");
-	const debounceNameLocal = useDebounce(nameLocal, 500);
+	const debounceNameLocal = useDebounce(nameLocal, 700);
 
 	useEffect(() => {
-		debounceNameLocal && setName(debounceNameLocal);
+		setName(debounceNameLocal);
 	}, [debounceNameLocal, setName]);
 
 	const handleOnChange = e => {
