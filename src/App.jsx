@@ -4,7 +4,7 @@ import Logo from "./components/common/Logo/Logo";
 import Footer from "./components/containers/Footer/Footer";
 import Header from "./components/containers/Header/Header";
 import { favorite, home } from "./constants/paths";
-import { CharactersContext } from "./contexts/CharactersContext";
+import { CharactersSlidersContext } from "./contexts/CharactersSlidersContext";
 import { useCharacters } from "./hooks/useCharacters";
 import Favorite from "./views/Favorite/Favorite";
 import Home from "./views/Home/Home";
@@ -27,7 +27,7 @@ function App() {
 				<Route
 					path={home}
 					element={
-						<CharactersContext.Provider
+						<CharactersSlidersContext.Provider
 							value={
 								(characters &&
 									randomCharacters &&
@@ -40,7 +40,7 @@ function App() {
 							}
 						>
 							<Home />
-						</CharactersContext.Provider>
+						</CharactersSlidersContext.Provider>
 					}
 				/>
 				<Route path={favorite} element={<Favorite />} />

@@ -1,24 +1,23 @@
-import { useContext } from "react";
-import { CharactersContext } from "../../../contexts/CharactersContext";
-import Slider from "../Slider/Slider";
 import css from "./style.module.css";
 
-export default function Characters() {
-	const { characters } = useContext(CharactersContext);
-	const { randomCharacters } = useContext(CharactersContext);
-	const { rarestCharacters } = useContext(CharactersContext);
+export default function Characters({ characters }) {
 	return (
 		<div className={css.characters}>
-			{characters.results && (
-				<Slider data={characters.results} title="Main characters" />
-			)}
-
-			{randomCharacters.results && (
-				<Slider data={randomCharacters.results} title="Random characters" />
-			)}
-			{rarestCharacters.results && (
-				<Slider data={rarestCharacters.results} title="Rarest characters" />
-			)}
+			<div className={css.characters__cards}>
+				{characters.results &&
+					characters.results.map(({ image, id, status, name }) => (
+						<picture key={id} className={css.characters__picture}>
+							<img className={css.characters__images} src={image} alt={name} />
+							{(status === "Alive" && (
+								<span className={css.characters__alive}></span>
+							)) ||
+								(status === "Dead" && (
+									<span className={css.characters__dead}></span>
+								)) || <span className={css.characters__unknow}></span>}
+							<span className={css.characters__name}>{name}</span>
+						</picture>
+					))}
+			</div>
 		</div>
 	);
 }

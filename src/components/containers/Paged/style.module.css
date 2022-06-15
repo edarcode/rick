@@ -1,0 +1,36 @@
+.paged ul {
+	display: flex;
+	place-content: center;
+	gap: 5px;
+	list-style: none;
+	padding: 0;
+}
+.paged ul li {
+	display: grid;
+	place-items: center;
+}
+.paged ul li a {
+	cursor: pointer;
+	border-radius: 50%;
+	padding: 0;
+	background-color: var(--mediumBlack);
+	width: 45px;
+	height: 45px;
+	display: grid;
+	place-items: center;
+	padding: 5px;
+}
+
+@media screen and (min-width: 768px) {
+	.paged ul li a {
+		width: 55px;
+		height: 55px;
+	}
+}
+
+.paged ul li a:hover {
+	background-color: var(--red);
+}
+.active {
+	background-color: var(--red) !important;
+}

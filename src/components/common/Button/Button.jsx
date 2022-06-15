@@ -4,7 +4,8 @@ export default function Button({
 	type = "submit",
 	content,
 	className = "btn",
-	modifier = ""
+	modifier = "",
+	onClick
 }) {
 	return (
 		<button
@@ -12,6 +13,7 @@ export default function Button({
 			className={
 				(!modifier && css[className]) || `${css[className]} ${css[modifier]}`
 			}
+			onClick={onClick}
 		>
 			{content}
 		</button>

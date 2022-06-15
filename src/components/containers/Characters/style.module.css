@@ -1,7 +1,65 @@
-.characters {
+.characters__cards {
 	display: grid;
-	place-content: center;
-	width: 100%;
-	gap: 50px;
-	padding: 40px 0 40px;
+	gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+	.characters__cards {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media screen and (min-width: 1280px) {
+	.characters__cards {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media screen and (min-width: 1920px) {
+	.characters__cards {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.characters__picture {
+	position: relative;
+	transition: transform 0.4s ease;
+}
+.characters__picture:hover {
+	transform: scale(1.04);
+}
+
+.characters__alive,
+.characters__dead,
+.characters__unknow {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: var(--green);
+	caret-color: transparent;
+}
+
+.characters__dead {
+	background-color: var(--red);
+}
+.characters__unknow {
+	background-color: var(--gray);
+}
+
+.characters__images {
+	border-radius: 8px;
+	pointer-events: none;
+	caret-color: transparent;
+}
+.characters__name {
+	position: absolute;
+	bottom: 0;
+	left: 20px;
+	color: var(--mediumBlack);
+	font-weight: bold;
+	transition: transform 0.3s ease;
+}
+.characters__name:hover {
+	transform: scale(1.1);
 }
