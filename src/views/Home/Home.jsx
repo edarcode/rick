@@ -21,7 +21,9 @@ export default function Home() {
 		if (isSearching) {
 			setLoading(true);
 			fetchCharacters({ name, page })
-				.then(data => setCharacters(data))
+				.then(data => {
+					if (!data.error) setCharacters(data);
+				})
 				.then(() => setLoading(false))
 				.catch(err => console.log(err));
 			const width = window.innerWidth;
