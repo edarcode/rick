@@ -33,7 +33,7 @@ export default function Home() {
 		}
 	}, [name, page, isSearching]);
 
-	const value = {
+	const characterFiltersContext = {
 		name,
 		setName
 	};
@@ -53,7 +53,7 @@ export default function Home() {
 					onClick={handleOnClick}
 				/>
 			)}
-			<CharacterFiltersContext.Provider value={value}>
+			<CharacterFiltersContext.Provider value={characterFiltersContext}>
 				{isSearching && <Search />}
 			</CharacterFiltersContext.Provider>
 			{characters && !loading && <Characters characters={characters} />}
