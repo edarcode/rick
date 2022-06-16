@@ -5,7 +5,9 @@ import Footer from "./components/containers/Footer/Footer";
 import Header from "./components/containers/Header/Header";
 import { favorite, home } from "./constants/paths";
 import { CharactersSlidersContext } from "./contexts/CharactersSlidersContext";
+import { FavoritesContext } from "./contexts/FavoritesContext";
 import { useCharacters } from "./hooks/useCharacters";
+import { useFavorites } from "./hooks/useFavorites";
 import Favorite from "./views/Favorite/Favorite";
 import Home from "./views/Home/Home";
 import NotFound from "./views/NotFound/NotFound";
@@ -19,33 +21,35 @@ function App() {
 	const { characters: rarestCharacters } = useCharacters({
 		page: otherNumRandom
 	});
+	const favorites = useFavorites();
+
+	const charactersSlidersContext = {
+		characters,
+		randomCharacters,
+		rarestCharacters
+	};
+
 	return (
 		<div className="App">
 			<Logo />
 			<Header />
-			<Routes>
-				<Route
-					path={home}
-					element={
-						<CharactersSlidersContext.Provider
-							value={
-								(characters &&
-									randomCharacters &&
-									rarestCharacters && {
-										characters,
-										randomCharacters,
-										rarestCharacters
-									}) ||
-								{}
-							}
-						>
-							<Home />
-						</CharactersSlidersContext.Provider>
-					}
-				/>
-				<Route path={favorite} element={<Favorite />} />
-				<Route path="*" element={<NotFound />} />
-			</Routes>
+			<FavoritesContext.Provider value={favorites}>
+				<Routes>
+					<Route
+						path={home}
+						element={
+							<CharactersSlidersContext.Provider
+								value={charactersSlidersContext}
+							>
+								<Home />
+							</CharactersSlidersContext.Provider>
+						}
+					/>
+					<Route path={favorite} element={<Favorite />} />
+
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</FavoritesContext.Provider>
 			<Footer />
 		</div>
 	);
