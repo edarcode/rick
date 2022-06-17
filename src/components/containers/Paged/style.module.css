@@ -1,3 +1,6 @@
+.paged {
+	margin-bottom: 30px;
+}
 .paged ul {
 	display: flex;
 	place-content: center;

@@ -1,5 +1,6 @@
+import RickAndMorty from "../../../svgs/RickAndMorty/RickAndMorty";
 import css from "./style.module.css";
 
 export default function Logo() {
-	return <img className={css.logo} src="/logo.png" alt="logo" />;
+	return <RickAndMorty className={css.logo} />;
 }
