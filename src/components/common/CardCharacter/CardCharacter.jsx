@@ -24,7 +24,12 @@ export default function CardCharacter({ image, status, name, id }) {
 			onMouseEnter={handleOnMouseEnter}
 			onMouseLeave={handleOnMouseLeave}
 		>
-			<img className={css.character__images} src={image} alt={name} />
+			<img
+				loading="lazy"
+				className={css.character__img}
+				src={image}
+				alt={name}
+			/>
 			{(status === "Alive" && <span className={css.character__alive}></span>) ||
 				(status === "Dead" && (
 					<span className={css.character__dead}></span>

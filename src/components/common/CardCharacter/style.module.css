@@ -27,10 +27,12 @@
 	background-color: var(--black);
 }
 
-.character__images {
+.character__img {
 	border-radius: 3px;
 	pointer-events: none;
 	caret-color: transparent;
+	min-width: 300px;
+	min-height: 300px;
 }
 .character__name {
 	position: absolute;
