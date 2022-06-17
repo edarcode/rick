@@ -21,7 +21,8 @@ export default function Favorite() {
 			setCharacters([]);
 		}
 	}, [favorites]);
-	console.log(characters);
+	if (!favorites.length)
+		return <img className={css.empty} src="/empty.png" alt="empty" />;
 	return (
 		<main className={css.favorites}>
 			{characters &&

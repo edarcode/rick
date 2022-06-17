@@ -20,7 +20,15 @@ export default function CardFavoriteCharacter({
 		<div className={css.character}>
 			<img className={css.character__img} src={image} alt={name} />
 			<h3 className={css.character__name}>{name}</h3>
-			<div className={css.character__status}></div>
+			<div
+				className={
+					(status === "Dead" &&
+						`${css.character__status} ${css["character__status--red"]}`) ||
+					(status === "unknown" &&
+						`${css.character__status} ${css["character__status--black"]}`) ||
+					css.character__status
+				}
+			></div>
 			<div className={css.character__species}>{species}</div>
 			<div className={css.character__origin}>{origin.name}</div>
 			<div className={css.character__gender}>{gender[0]}</div>
