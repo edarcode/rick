@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useMediaScreen } from "../../../hooks/useMediaScreen";
 
 import Card from "../../common/Card/Card";
 import css from "./style.module.css";
@@ -7,17 +8,15 @@ import css from "./style.module.css";
 export default function Slider({ data, title }) {
 	const sliderContainer = useRef(null);
 	const [left, setLeft] = useState();
+	const { widthScreen } = useMediaScreen();
 
 	useEffect(() => {
 		const scroll =
 			sliderContainer.current.scrollWidth - sliderContainer.current.offsetWidth;
-		setLeft(-scroll);
-		const resize = () => {
+		setTimeout(() => {
 			setLeft(-scroll);
-		};
-		window.addEventListener("resize", resize);
-		return () => window.removeEventListener("resize", resize);
-	}, []);
+		}, 500);
+	}, [widthScreen]);
 
 	return (
 		<div className={css.slider}>
